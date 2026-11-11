@@ -22,13 +22,5 @@ def health():
     logger.info("Health check accessed")
     return jsonify({"status": "healthy"}), 200
 
-@app.route("/error")
-def error():
-    try:
-        raise ValueError("This is a test application error")
-    except ValueError:
-        logger.exception("Test exception generated")
-        return jsonify({"error": "Test exception generated"}), 500
-
 if __name__ == "__main__":
     app.run()
